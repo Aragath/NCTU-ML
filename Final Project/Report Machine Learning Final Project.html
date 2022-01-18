@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>
+        HackMD - Markdown 協作知識庫
+    </title>
+    <link rel="icon" type="image/png" href="https://hackmd.io/favicon.png">
+    <link rel="apple-touch-icon" href="https://hackmd.io/apple-touch-icon.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" integrity="sha256-3iu9jgsy9TpTwXKb7bNQzqWekRX7pPK+2OLj3R922fo=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/3.5.0/octicons.min.css" integrity="sha256-QiWfLIsCT02Sdwkogf6YMiQlj4NE84MKkzEMkZnMGdg=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.min.css" integrity="sha256-vtR0hSWRc3Tb26iuN2oZHt3KRUomwTufNIf5/4oeCyg=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@hackmd/emojify.js@2.1.0/dist/css/basic/emojify.min.css" integrity="sha256-UOrvMOsSDSrW6szVLe8ZDZezBxh5IoIfgTwdNDgTjiU=" crossorigin="anonymous" />
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i|Source+Code+Pro:300,400,500|Source+Sans+Pro:300,300i,400,400i,600,600i|Source+Serif+Pro&subset=latin-ext);.hljs{display:block;background:#fff;padding:.5em;color:#333;overflow-x:auto}.hljs-comment,.hljs-meta{color:#969896}.hljs-emphasis,.hljs-quote,.hljs-string,.hljs-strong,.hljs-template-variable,.hljs-variable{color:#df5000}.hljs-keyword,.hljs-selector-tag,.hljs-type{color:#a71d5d}.hljs-attribute,.hljs-bullet,.hljs-literal,.hljs-number,.hljs-symbol{color:#0086b3}.hljs-built_in,.hljs-builtin-name{color:#005cc5}.hljs-name,.hljs-section{color:#63a35c}.hljs-tag{color:#333}.hljs-attr,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-id,.hljs-selector-pseudo,.hljs-title{color:#795da3}.hljs-addition{color:#55a532;background-color:#eaffea}.hljs-deletion{color:#bd2c00;background-color:#ffecec}.hljs-link{text-decoration:underline}.markdown-body{font-size:16px;line-height:1.5;word-wrap:break-word}.markdown-body:after,.markdown-body:before{display:table;content:""}.markdown-body:after{clear:both}.markdown-body>:first-child{margin-top:0!important}.markdown-body>:last-child{margin-bottom:0!important}.markdown-body a:not([href]){color:inherit;text-decoration:none}.markdown-body .absent{color:#c00}.markdown-body .anchor{float:left;padding-right:4px;margin-left:-20px;line-height:1}.markdown-body .anchor:focus{outline:none}.markdown-body blockquote,.markdown-body dl,.markdown-body ol,.markdown-body p,.markdown-body pre,.markdown-body table,.markdown-body ul{margin-top:0;margin-bottom:16px}.markdown-body hr{height:.25em;padding:0;margin:24px 0;background-color:#e7e7e7;border:0}.markdown-body blockquote{font-size:16px;padding:0 1em;color:#777;border-left:.25em solid #ddd}.markdown-body blockquote>:first-child{margin-top:0}.markdown-body blockquote>:last-child{margin-bottom:0}.markdown-body kbd,.popover kbd{display:inline-block;padding:3px 5px;font-size:11px;line-height:10px;color:#555;vertical-align:middle;background-color:#fcfcfc;border:1px solid #ccc;border-bottom-color:#bbb;border-radius:3px;box-shadow:inset 0 -1px 0 #bbb}.markdown-body .loweralpha{list-style-type:lower-alpha}.markdown-body h1,.markdown-body h2,.markdown-body h3,.markdown-body h4,.markdown-body h5,.markdown-body h6{margin-top:24px;margin-bottom:16px;font-weight:600;line-height:1.25}.markdown-body h1 .octicon-link,.markdown-body h2 .octicon-link,.markdown-body h3 .octicon-link,.markdown-body h4 .octicon-link,.markdown-body h5 .octicon-link,.markdown-body h6 .octicon-link{color:#000;vertical-align:middle;visibility:hidden}.markdown-body h1:hover .anchor,.markdown-body h2:hover .anchor,.markdown-body h3:hover .anchor,.markdown-body h4:hover .anchor,.markdown-body h5:hover .anchor,.markdown-body h6:hover .anchor{text-decoration:none}.markdown-body h1:hover .anchor .octicon-link,.markdown-body h2:hover .anchor .octicon-link,.markdown-body h3:hover .anchor .octicon-link,.markdown-body h4:hover .anchor .octicon-link,.markdown-body h5:hover .anchor .octicon-link,.markdown-body h6:hover .anchor .octicon-link{visibility:visible}.markdown-body h1 code,.markdown-body h1 tt,.markdown-body h2 code,.markdown-body h2 tt,.markdown-body h3 code,.markdown-body h3 tt,.markdown-body h4 code,.markdown-body h4 tt,.markdown-body h5 code,.markdown-body h5 tt,.markdown-body h6 code,.markdown-body h6 tt{font-size:inherit}.markdown-body h1{font-size:2em}.markdown-body h1,.markdown-body h2{padding-bottom:.3em;border-bottom:1px solid #eee}.markdown-body h2{font-size:1.5em}.markdown-body h3{font-size:1.25em}.markdown-body h4{font-size:1em}.markdown-body h5{font-size:.875em}.markdown-body h6{font-size:.85em;color:#777}.markdown-body ol,.markdown-body ul{padding-left:2em}.markdown-body ol.no-list,.markdown-body ul.no-list{padding:0;list-style-type:none}.markdown-body ol ol,.markdown-body ol ul,.markdown-body ul ol,.markdown-body ul ul{margin-top:0;margin-bottom:0}.markdown-body li>p{margin-top:16px}.markdown-body li+li{padding-top:.25em}.markdown-body dl{padding:0}.markdown-body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}.markdown-body dl dd{padding:0 16px;margin-bottom:16px}.markdown-body table{display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}.markdown-body table th{font-weight:700}.markdown-body table td,.markdown-body table th{padding:6px 13px;border:1px solid #ddd}.markdown-body table tr{background-color:#fff;border-top:1px solid #ccc}.markdown-body table tr:nth-child(2n){background-color:#f8f8f8}.markdown-body img{max-width:100%;box-sizing:content-box;background-color:#fff}.markdown-body img[align=right]{padding-left:20px}.markdown-body img[align=left]{padding-right:20px}.markdown-body .emoji{max-width:none;vertical-align:text-top;background-color:transparent}.markdown-body span.frame{display:block;overflow:hidden}.markdown-body span.frame>span{display:block;float:left;width:auto;padding:7px;margin:13px 0 0;overflow:hidden;border:1px solid #ddd}.markdown-body span.frame span img{display:block;float:left}.markdown-body span.frame span span{display:block;padding:5px 0 0;clear:both;color:#333}.markdown-body span.align-center{display:block;overflow:hidden;clear:both}.markdown-body span.align-center>span{display:block;margin:13px auto 0;overflow:hidden;text-align:center}.markdown-body span.align-center span img{margin:0 auto;text-align:center}.markdown-body span.align-right{display:block;overflow:hidden;clear:both}.markdown-body span.align-right>span{display:block;margin:13px 0 0;overflow:hidden;text-align:right}.markdown-body span.align-right span img{margin:0;text-align:right}.markdown-body span.float-left{display:block;float:left;margin-right:13px;overflow:hidden}.markdown-body span.float-left span{margin:13px 0 0}.markdown-body span.float-right{display:block;float:right;margin-left:13px;overflow:hidden}.markdown-body span.float-right>span{display:block;margin:13px auto 0;overflow:hidden;text-align:right}.markdown-body code,.markdown-body tt{padding:0;padding-top:.2em;padding-bottom:.2em;margin:0;font-size:85%;background-color:rgba(0,0,0,.04);border-radius:3px}.markdown-body code:after,.markdown-body code:before,.markdown-body tt:after,.markdown-body tt:before{letter-spacing:-.2em;content:"\00a0"}.markdown-body code br,.markdown-body tt br{display:none}.markdown-body del code{text-decoration:inherit}.markdown-body pre{word-wrap:normal}.markdown-body pre>code{padding:0;margin:0;font-size:100%;word-break:normal;white-space:pre;background:transparent;border:0}.markdown-body .highlight{margin-bottom:16px}.markdown-body .highlight pre{margin-bottom:0;word-break:normal}.markdown-body .highlight pre,.markdown-body pre{padding:16px;overflow:auto;font-size:85%;line-height:1.45;background-color:#f7f7f7;border-radius:3px}.markdown-body pre code,.markdown-body pre tt{display:inline;max-width:auto;padding:0;margin:0;overflow:visible;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}.markdown-body pre code:after,.markdown-body pre code:before,.markdown-body pre tt:after,.markdown-body pre tt:before{content:normal}.markdown-body .csv-data td,.markdown-body .csv-data th{padding:5px;overflow:hidden;font-size:12px;line-height:1;text-align:left;white-space:nowrap}.markdown-body .csv-data .blob-line-num{padding:10px 8px 9px;text-align:right;background:#fff;border:0}.markdown-body .csv-data tr{border-top:0}.markdown-body .csv-data th{font-weight:700;background:#f8f8f8;border-top:0}.news .alert .markdown-body blockquote{padding:0 0 0 40px;border:0 none}.activity-tab .news .alert .commits,.activity-tab .news .markdown-body blockquote{padding-left:0}.task-list-item{list-style-type:none}.task-list-item label{font-weight:400}.task-list-item.enabled label{cursor:pointer}.task-list-item+.task-list-item{margin-top:3px}.task-list-item-checkbox{float:left;margin:.31em 0 .2em -1.3em!important;vertical-align:middle;cursor:default!important}.markdown-body{padding-top:40px;padding-bottom:40px;max-width:758px;overflow:visible!important;position:relative}.markdown-body .emoji{vertical-align:top}.markdown-body pre{border:inherit!important}.markdown-body code{color:inherit!important}.markdown-body pre code .wrapper{display:-moz-inline-flex;display:-ms-inline-flex;display:-o-inline-flex;display:inline-flex}.markdown-body pre code .gutter{float:left;overflow:hidden;-webkit-user-select:none;user-select:none}.markdown-body pre code .gutter.linenumber{text-align:right;position:relative;display:inline-block;cursor:default;z-index:4;padding:0 8px 0 0;min-width:20px;box-sizing:content-box;color:#afafaf!important;border-right:3px solid #6ce26c!important}.markdown-body pre code .gutter.linenumber>span:before{content:attr(data-linenumber)}.markdown-body pre code .code{float:left;margin:0 0 0 16px}.markdown-body .gist .line-numbers{border-left:none;border-top:none;border-bottom:none}.markdown-body .gist .line-data{border:none}.markdown-body .gist table{border-spacing:0;border-collapse:inherit!important}.markdown-body code[data-gist-id]{background:none;padding:0}.markdown-body code[data-gist-id]:after,.markdown-body code[data-gist-id]:before{content:""}.markdown-body code[data-gist-id] .blob-num{border:unset}.markdown-body code[data-gist-id] table{overflow:unset;margin-bottom:unset}.markdown-body code[data-gist-id] table tr{background:unset}.markdown-body[dir=rtl] pre{direction:ltr}.markdown-body[dir=rtl] code{direction:ltr;unicode-bidi:embed}.markdown-body .alert>p:last-child{margin-bottom:0}.markdown-body pre.abc,.markdown-body pre.flow-chart,.markdown-body pre.graphviz,.markdown-body pre.mermaid,.markdown-body pre.sequence-diagram,.markdown-body pre.vega{text-align:center;background-color:inherit;border-radius:0;white-space:inherit;overflow:visible}.markdown-body pre.abc>code,.markdown-body pre.flow-chart>code,.markdown-body pre.graphviz>code,.markdown-body pre.mermaid>code,.markdown-body pre.sequence-diagram>code,.markdown-body pre.vega>code{text-align:left}.markdown-body pre.abc>svg,.markdown-body pre.flow-chart>svg,.markdown-body pre.graphviz>svg,.markdown-body pre.mermaid>svg,.markdown-body pre.sequence-diagram>svg,.markdown-body pre.vega>svg{max-width:100%;height:100%}.markdown-body pre>code.wrap{white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space:-o-pre-wrap;word-wrap:break-word}.markdown-body .alert>p:last-child,.markdown-body .alert>ul:last-child{margin-bottom:0}.markdown-body summary{display:list-item}.markdown-body summary:focus{outline:none}.markdown-body details summary{cursor:pointer}.markdown-body details:not([open])>:not(summary){display:none}.markdown-body figure{margin:1em 40px}.markdown-body .mark,.markdown-body mark{background-color:#fff1a7}.vimeo,.youtube{cursor:pointer;display:table;text-align:center;background-position:50%;background-repeat:no-repeat;background-size:contain;background-color:#000;overflow:hidden}.vimeo,.youtube{position:relative;width:100%}.youtube{padding-bottom:56.25%}.vimeo img{width:100%;object-fit:contain;z-index:0}.youtube img{object-fit:cover;z-index:0}.vimeo iframe,.youtube iframe,.youtube img{width:100%;height:100%;position:absolute;top:0;left:0}.vimeo iframe,.youtube iframe{vertical-align:middle;z-index:1}.vimeo .icon,.youtube .icon{position:absolute;height:auto;width:auto;top:50%;left:50%;transform:translate(-50%,-50%);color:#fff;opacity:.3;transition:opacity .2s;z-index:0}.vimeo:hover .icon,.youtube:hover .icon{opacity:.6;transition:opacity .2s}.slideshare .inner,.speakerdeck .inner{position:relative;width:100%}.slideshare .inner iframe,.speakerdeck .inner iframe{position:absolute;top:0;bottom:0;left:0;right:0;width:100%;height:100%}.figma{display:table;position:relative;width:100%;padding-bottom:56.25%}.figma iframe{position:absolute;top:0;bottom:0;left:0;right:0;width:100%;height:100%;border:1px solid #eee}.MJX_Assistive_MathML{display:none}#MathJax_Message{z-index:1000!important}.ui-infobar{position:relative;z-index:2;max-width:760px;margin:25px auto -25px;color:#777}.toc .invisable-node{list-style-type:none}.ui-toc{position:fixed;bottom:20px;z-index:998}.ui-toc.both-mode{margin-left:8px}.ui-toc.both-mode .ui-toc-label{height:40px;padding:10px 4px;border-top-left-radius:0;border-bottom-left-radius:0}.ui-toc-label{background-color:#e6e6e6;border:none;color:#868686;transition:opacity .2s}.ui-toc .open .ui-toc-label{opacity:1;color:#fff;transition:opacity .2s}.ui-toc-label:focus{opacity:.3;background-color:#ccc;color:#000}.ui-toc-label:hover{opacity:1;background-color:#ccc;transition:opacity .2s}.ui-toc-dropdown{margin-top:20px;margin-bottom:20px;padding-left:10px;padding-right:10px;max-width:45vw;width:25vw;max-height:70vh;overflow:auto;text-align:inherit}.ui-toc-dropdown>.toc{max-height:calc(70vh - 100px);overflow:auto}.ui-toc-dropdown[dir=rtl] .nav{padding-right:0;letter-spacing:.0029em}.ui-toc-dropdown a{overflow:hidden;text-overflow:ellipsis;white-space:pre}.ui-toc-dropdown .nav>li>a{display:block;padding:4px 20px;font-size:13px;font-weight:500;color:#767676}.ui-toc-dropdown .nav>li:first-child:last-child>ul,.ui-toc-dropdown .toc.expand ul{display:block}.ui-toc-dropdown .nav>li>a:focus,.ui-toc-dropdown .nav>li>a:hover{padding-left:19px;color:#000;text-decoration:none;background-color:transparent;border-left:1px solid #000}.ui-toc-dropdown[dir=rtl] .nav>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav>li>a:hover{padding-right:19px;border-left:none;border-right:1px solid #000}.ui-toc-dropdown .nav>.active:focus>a,.ui-toc-dropdown .nav>.active:hover>a,.ui-toc-dropdown .nav>.active>a{padding-left:18px;font-weight:700;color:#000;background-color:transparent;border-left:2px solid #000}.ui-toc-dropdown[dir=rtl] .nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav>.active>a{padding-right:18px;border-left:none;border-right:2px solid #000}.ui-toc-dropdown .nav .nav{display:none;padding-bottom:10px}.ui-toc-dropdown .nav>.active>ul{display:block}.ui-toc-dropdown .nav .nav>li>a{padding-top:1px;padding-bottom:1px;padding-left:30px;font-size:12px;font-weight:400}.ui-toc-dropdown[dir=rtl] .nav .nav>li>a{padding-right:30px}.ui-toc-dropdown .nav .nav>li>ul>li>a{padding-top:1px;padding-bottom:1px;padding-left:40px;font-size:12px;font-weight:400}.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a{padding-right:40px}.ui-toc-dropdown .nav .nav>li>a:focus,.ui-toc-dropdown .nav .nav>li>a:hover{padding-left:29px}.ui-toc-dropdown[dir=rtl] .nav .nav>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav .nav>li>a:hover{padding-right:29px}.ui-toc-dropdown .nav .nav>li>ul>li>a:focus,.ui-toc-dropdown .nav .nav>li>ul>li>a:hover{padding-left:39px}.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a:hover{padding-right:39px}.ui-toc-dropdown .nav .nav>.active:focus>a,.ui-toc-dropdown .nav .nav>.active:hover>a,.ui-toc-dropdown .nav .nav>.active>a{padding-left:28px;font-weight:500}.ui-toc-dropdown[dir=rtl] .nav .nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>a{padding-right:28px}.ui-toc-dropdown .nav .nav>.active>.nav>.active:focus>a,.ui-toc-dropdown .nav .nav>.active>.nav>.active:hover>a,.ui-toc-dropdown .nav .nav>.active>.nav>.active>a{padding-left:38px;font-weight:500}.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active>a{padding-right:38px}.markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,sans-serif}html[lang^=ja] .markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ\ ゴシック,sans-serif}html[lang=zh-tw] .markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif}html[lang=zh-cn] .markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif}html .markdown-body[lang^=ja]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ\ ゴシック,sans-serif}html .markdown-body[lang=zh-tw]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif}html .markdown-body[lang=zh-cn]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Helvetica,Roboto,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif}html[lang^=ja] .ui-toc-dropdown{font-family:Source Sans Pro,Helvetica,Arial,Meiryo UI,MS PGothic,ＭＳ\ Ｐゴシック,sans-serif}html[lang=zh-tw] .ui-toc-dropdown{font-family:Source Sans Pro,Helvetica,Arial,Microsoft JhengHei UI,微軟正黑UI,sans-serif}html[lang=zh-cn] .ui-toc-dropdown{font-family:Source Sans Pro,Helvetica,Arial,Microsoft YaHei UI,微软雅黑UI,sans-serif}html .ui-toc-dropdown[lang^=ja]{font-family:Source Sans Pro,Helvetica,Arial,Meiryo UI,MS PGothic,ＭＳ\ Ｐゴシック,sans-serif}html .ui-toc-dropdown[lang=zh-tw]{font-family:Source Sans Pro,Helvetica,Arial,Microsoft JhengHei UI,微軟正黑UI,sans-serif}html .ui-toc-dropdown[lang=zh-cn]{font-family:Source Sans Pro,Helvetica,Arial,Microsoft YaHei UI,微软雅黑UI,sans-serif}.ui-affix-toc{position:fixed;top:0;max-width:15vw;max-height:70vh;overflow:auto}.back-to-top,.expand-toggle,.go-to-bottom{display:block;padding:4px 10px;margin-top:10px;margin-left:10px;font-size:12px;font-weight:500;color:#999}.back-to-top:focus,.back-to-top:hover,.expand-toggle:focus,.expand-toggle:hover,.go-to-bottom:focus,.go-to-bottom:hover{color:#563d7c;text-decoration:none}.back-to-top,.go-to-bottom{margin-top:0}.ui-user-icon{width:20px;height:20px;display:block;border-radius:50%;margin-top:2px;margin-bottom:2px;margin-right:5px;background-position:50%;background-repeat:no-repeat;background-size:cover}.ui-user-icon.small{width:18px;height:18px;display:inline-block;vertical-align:middle;margin:0 0 .2em}.ui-infobar>small>span{line-height:22px}.ui-infobar>small .dropdown{display:inline-block}.ui-infobar>small .dropdown a:focus,.ui-infobar>small .dropdown a:hover{text-decoration:none}.ui-more-info{color:#888;cursor:pointer;vertical-align:middle}.ui-more-info .fa{font-size:16px}.ui-connectedGithub,.ui-published-note{color:#888}.ui-connectedGithub{line-height:23px;white-space:nowrap}.ui-connectedGithub a.file-path{color:#888;text-decoration:none;padding-left:22px}.ui-connectedGithub a.file-path:active,.ui-connectedGithub a.file-path:hover{color:#888;text-decoration:underline}.ui-connectedGithub .fa{font-size:20px}.ui-published-note .fa{font-size:20px;vertical-align:top}.unselectable{-webkit-user-select:none;-o-user-select:none;user-select:none}.selectable{-webkit-user-select:text;-o-user-select:text;user-select:text}@media print{blockquote,div,img,pre,table{page-break-inside:avoid!important}a[href]:after{font-size:12px!important}}.markdown-body.slides{position:relative;z-index:1;color:#222}.markdown-body.slides:before{content:"";display:block;position:absolute;top:0;left:0;right:0;bottom:0;z-index:-1;background-color:currentColor;box-shadow:0 0 0 50vw}.markdown-body.slides section[data-markdown]{position:relative;margin-bottom:1.5em;background-color:#fff;text-align:center}.markdown-body.slides section[data-markdown] code{text-align:left}.markdown-body.slides section[data-markdown]:before{content:"";display:block;padding-bottom:56.23%}.markdown-body.slides section[data-markdown]>div:first-child{position:absolute;top:50%;left:1em;right:1em;transform:translateY(-50%);max-height:100%;overflow:hidden}.markdown-body.slides section[data-markdown]>ul{display:inline-block}.markdown-body.slides>section>section+section:after{content:"";position:absolute;top:-1.5em;right:1em;height:1.5em;border:3px solid #777}.site-ui-font{font-family:Source Sans Pro,Helvetica,Arial,sans-serif}html[lang^=ja] .site-ui-font{font-family:Source Sans Pro,Helvetica,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ\ ゴシック,sans-serif}html[lang=zh-tw] .site-ui-font{font-family:Source Sans Pro,Helvetica,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif}html[lang=zh-cn] .site-ui-font{font-family:Source Sans Pro,Helvetica,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif}body{font-smoothing:subpixel-antialiased!important;-webkit-font-smoothing:subpixel-antialiased!important;-moz-osx-font-smoothing:auto!important;text-shadow:0 0 1em transparent,1px 1px 1.2px rgba(0,0,0,.004);-webkit-overflow-scrolling:touch;letter-spacing:.025em;font-family:Source Sans Pro,Helvetica,Arial,sans-serif}html[lang^=ja] body{font-family:Source Sans Pro,Helvetica,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ\ ゴシック,sans-serif}html[lang=zh-tw] body{font-family:Source Sans Pro,Helvetica,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif}html[lang=zh-cn] body{font-family:Source Sans Pro,Helvetica,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif}abbr[title]{border-bottom:none;text-decoration:underline;-webkit-text-decoration:underline dotted;text-decoration:underline dotted}abbr[data-original-title],abbr[title]{cursor:help}body.modal-open{overflow-y:auto;padding-right:0!important}
+    </style>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
+    	<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js" integrity="sha256-g6iAfvZp+nDQ2TdTR/VVKJf3bGro4ub5fvWSWVRi2NE=" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js" integrity="sha256-8E4Is26QH0bD52WoQpcB+R/tcWQtpzlCojrybUd7Mxo=" crossorigin="anonymous"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <div id="doc" class="markdown-body container-fluid comment-enabled comment-inner" data-hard-breaks="true"><h2 id="Introduction" data-id="Introduction"><a class="anchor hidden-xs" href="#Introduction" title="Introduction"><span class="octicon octicon-link"></span></a><span>Introduction</span></h2><h3 id="題目：Steam-Games-Total-Sales-Analysis" data-id="題目：Steam-Games-Total-Sales-Analysis"><a class="anchor hidden-xs" href="#題目：Steam-Games-Total-Sales-Analysis" title="題目：Steam-Games-Total-Sales-Analysis"><span class="octicon octicon-link"></span></a><span>題目：Steam Games Total Sales Analysis</span></h3><p><span>透過各項數據（遊戲類型、遊戲網站評分、價格、支援搖桿、支援多個語言等等）預測該遊戲的擁有人數（銷量），及分析影響銷量的幾項重要feature</span></p><p><span>使用了以下的幾個預測模型：</span></p><ul>
+<li><span>Decision Tree</span></li>
+<li><span>Random Forest</span></li>
+<li><span>KNN</span></li>
+<li><span>ANN</span></li>
+<li><span>Linear Regression</span></li>
+</ul><p><span>由於預測的target為numeric，除了Linear Regression以外的Model皆會使用Binning後的data（分成數量同等份的五個類別）</span><br>
+<span>除此之外，因為feature數量很多，也會嘗試使用PCA降維，並測試其performance如何</span></p><h2 id="Data-Collection" data-id="Data-Collection"><a class="anchor hidden-xs" href="#Data-Collection" title="Data-Collection"><span class="octicon octicon-link"></span></a><span>Data Collection</span></h2><ul>
+<li><span>Data Srouce: Steam Game Data</span>
+<ul>
+<li><span>Data World : </span><a href="https://data.world/craigkelly/steam-game-data" target="_blank" rel="noopener"><span>https://data.world/craigkelly/steam-game-data</span></a></li>
+<li><span>Github: </span><a href="https://github.com/CraigKelly/steam-data" target="_blank" rel="noopener"><span>https://github.com/CraigKelly/steam-data</span></a></li>
+</ul>
+</li>
+</ul><h2 id="Preprocessing" data-id="Preprocessing"><a class="anchor hidden-xs" href="#Preprocessing" title="Preprocessing"><span class="octicon octicon-link"></span></a><span>Preprocessing</span></h2><h3 id="Data-Clean-up" data-id="Data-Clean-up"><a class="anchor hidden-xs" href="#Data-Clean-up" title="Data-Clean-up"><span class="octicon octicon-link"></span></a><span>Data Clean-up</span></h3><p><span>在進行training前，要先檢視data的狀況，由於data的來源是利用爬蟲得來，可能會有格式跑掉或空格的data。</span><br>
+<span>此外，不是每項row和feature都是我需要的，所以在稍微過目後我手動刪除了幾項的row和column：</span></p><ul>
+<li><span>row</span>
+<ul>
+<li><span>有缺項</span></li>
+<li><span>格式錯誤（由data type判斷）</span></li>
+<li><span>GenreIsNonGame == True ： 該項不是遊戲 --&gt; 題目僅分析遊戲類別</span></li>
+<li><span>SteamSpyOwners == 0 ： 會導致model異常的noise</span></li>
+</ul>
+</li>
+<li><span>column</span>
+<ul>
+<li><span>data type為文字、網址、email（i.e. AboutText：遊戲簡述、HeaderImage：遊戲封面的網址、SupportEmail：客服email…）</span></li>
+<li><span>與分析目標無關（i.e. DLCCount：DLC數量、AchievementCount：遊戲成就數量…）</span></li>
+</ul>
+</li>
+</ul><h3 id="Data-Transformation" data-id="Data-Transformation"><a class="anchor hidden-xs" href="#Data-Transformation" title="Data-Transformation"><span class="octicon octicon-link"></span></a><span>Data Transformation</span></h3><p><span>除了清理data外，對資料進行一些轉換、增減row和column，以利之後model的training</span></p><h4 id="原始資料讀入後概況：" data-id="原始資料讀入後概況："><a class="anchor hidden-xs" href="#原始資料讀入後概況：" title="原始資料讀入後概況："><span class="octicon octicon-link"></span></a><span>原始資料讀入後概況：</span></h4><p><img src="https://i.imgur.com/ZtmnyRc.jpg" alt="" loading="lazy"></p><h4 id="進行轉換" data-id="進行轉換"><a class="anchor hidden-xs" href="#進行轉換" title="進行轉換"><span class="octicon octicon-link"></span></a><span>進行轉換</span></h4><p><span>把string的</span><code>TRUE</code><span>改為boolean的</span><code>True</code></p><pre><code>games = games.replace({'TRUE': True, 'FALSE': False})
+</code></pre><p><span>把第一行row設為各column的名字</span></p><pre><code>games = games.rename(columns=games.iloc[0]).drop(games.index[0]).reset_index(drop=True)
+</code></pre><p><span>從ReleaseDate中取出後四個char並增設新的column：</span><code>ReleaseYear</code></p><pre><code># get release year from release date
+ReleaseYear = []
+for element in games['ReleaseDate']:
+    ReleaseYear.append(element[-4:])
+
+# insert new column ReleaseYear
+games.insert(loc=2, column='ReleaseYear', value=ReleaseYear)
+</code></pre><p><span>檢查ReleaseYear中有無不符合年分格式(pattern)的data並移除</span></p><pre><code>pattern = '[1-2][0-9][0-9][0-9]'
+matches = games['ReleaseYear'].str.contains(pattern)
+
+temp = games[matches]
+temp = temp.reset_index()
+temp = temp.drop('ReleaseDate', axis = 1)
+temp = temp.drop('index', axis = 1)
+</code></pre><p><span>計算SupportedLanguages中有幾個語言並增設新的column：</span><code>SupportedLanguagesCount</code></p><pre><code>num_of_lang = []
+for row in temp['SupportedLanguages']:
+    num_of_lang.append(row.count(' ') + 1)
+    
+temp['SupportedLanguagesCount'] = num_of_lang
+</code></pre><p><span>對SupportedLanguages做encoding</span></p><pre><code># split the supported languages to multiple rows for encoding
+games = temp.set_index(columns).apply(lambda x: x.str.split(' ').explode()).reset_index()
+
+# encode SupportedLanguages
+games = pd.get_dummies(games , columns=['SupportedLanguages'])
+
+# merge back all the rows that have the same Name feature
+temp = games.groupby(['Name'], as_index=False, sort = False).max()
+</code></pre><h2 id="Data-Visualization" data-id="Data-Visualization"><a class="anchor hidden-xs" href="#Data-Visualization" title="Data-Visualization"><span class="octicon octicon-link"></span></a><span>Data Visualization</span></h2><h3 id="各feature分布" data-id="各feature分布"><a class="anchor hidden-xs" href="#各feature分布" title="各feature分布"><span class="octicon octicon-link"></span></a><span>各feature分布</span></h3><p><img src="https://i.imgur.com/OkIGss4.png" alt="" loading="lazy"></p><h4 id="銷量分布" data-id="銷量分布"><a class="anchor hidden-xs" href="#銷量分布" title="銷量分布"><span class="octicon octicon-link"></span></a><span>銷量分布</span></h4><p><img src="https://i.imgur.com/dWVMLG9.png" alt="" loading="lazy"></p><h2 id="Using-classification-models-amp-k-fold-validation" data-id="Using-classification-models-amp-k-fold-validation"><a class="anchor hidden-xs" href="#Using-classification-models-amp-k-fold-validation" title="Using-classification-models-amp-k-fold-validation"><span class="octicon octicon-link"></span></a><span>Using classification models &amp; k-fold validation</span></h2><ul>
+<li><span>Decision Tree</span></li>
+<li><span>Random Forest</span></li>
+<li><span>KNN</span></li>
+</ul><h3 id="Data-binning" data-id="Data-binning"><a class="anchor hidden-xs" href="#Data-binning" title="Data-binning"><span class="octicon octicon-link"></span></a><span>Data binning</span></h3><p><span>為了讓data能利用classification model來預測，將data切為數量同等份的五個bin</span></p><pre><code># convert string to int
+games['SteamSpyOwners'] = games['SteamSpyOwners'].astype(int)
+
+# cut numeric feature 'SteamSpyOwners' to 5 bins 
+games['bin'] = pd.qcut(games['SteamSpyOwners'], q=5, precision=1)
+</code></pre><h4 id="切分後的bin範圍及相對的數量" data-id="切分後的bin範圍及相對的數量"><a class="anchor hidden-xs" href="#切分後的bin範圍及相對的數量" title="切分後的bin範圍及相對的數量"><span class="octicon octicon-link"></span></a><span>切分後的bin範圍及相對的數量</span></h4><pre><code># 範圍                     數量
+(532.9, 3408.0]           2035
+(3408.0, 11299.0]         1981
+(11299.0, 33000.0]        1994
+(33000.0, 136844.0]       1998
+(136844.0, 90687580.0]    1998
+</code></pre><p><span>依照上面的結果，把數字美化後進行切割並增設class column：</span><code>five_level</code></p><pre><code>...
+if(binned_value &lt; 3500):
+    five_level.append('&lt;3500')
+elif(binned_value &lt; 11000):
+    five_level.append('&lt;11k')
+elif(binned_value &lt; 33000):
+    five_level.append('&lt;33k')
+elif(binned_value &lt; 140000):
+    five_level.append('&lt;140k')
+else:
+    five_level.append('&gt;140k')
+        
+games['five_level'] = five_level
+</code></pre><h3 id="Building-Models" data-id="Building-Models"><a class="anchor hidden-xs" href="#Building-Models" title="Building-Models"><span class="octicon octicon-link"></span></a><span>Building Models</span></h3><p><span>Decision Tree</span><br>
+<code>DecisionTreeNPCA_model=tree.DecisionTreeClassifier(max_depth = 10)</code></p><p><span>Random Forest</span><br>
+<code>RandomForestNPCA100_model=ensemble.RandomForestClassifier(n_estimators = 100)</code></p><p><span>KNN</span><br>
+<code>KNNNPCA15_model = KNeighborsClassifier(n_neighbors=15)</code></p><h3 id="Results" data-id="Results"><a class="anchor hidden-xs" href="#Results" title="Results"><span class="octicon octicon-link"></span></a><span>Results</span></h3><p><span>從下圖的結果來看，3個model經過PCA與否都只有40%~50%的準確率。</span><br>
+<span>而從confusion matrix來看，有幾項甚至單項判斷錯誤的數值比判斷正確的還高好幾倍，而兩端的label準確率較高。</span></p><pre><code>+--------------------------------------------------------------------+
+|      Decision tree with/without PCA for binary classification      |
++--------------+--------------------------+--------------------------+
+|              |       without PCA        |         with PCA         |
++--------------+--------------------------+--------------------------+
+|   accuracy   |    0.4246496356138478    |    0.3108128789322365    |
+|    recall    |    0.4238004038789599    |    0.3107016405756168    |
+|  precision   |    0.439551058263145     |    0.3298696810537796    |
++--------------+--------------------------+--------------------------+
+</code></pre><p><img src="https://i.imgur.com/gRKakGh.png" alt="" loading="lazy"></p><pre><code>+--------------------------------------------------------------------+
+|      Random forest with/without PCA for binary classification      |
++--------------+--------------------------+--------------------------+
+|              |       without PCA        |         with PCA         |
++--------------+--------------------------+--------------------------+
+|   accuracy   |   0.43994261861874817    |    0.3396991552185538    |
+|    recall    |   0.43942073526886105    |    0.3406106651075721    |
+|  precision   |   0.45859402320220516    |   0.34855506281605964    |
++--------------+--------------------------+--------------------------+
+</code></pre><p><img src="https://i.imgur.com/PoI9xxM.png" alt="" loading="lazy"></p><pre><code>+------------------------------------------------------------+
+|       KNN with/without PCA for binary classification       |
++------------+-----------------------+-----------------------+
+|            |      without PCA      |        with PCA       |
++------------+-----------------------+-----------------------+
+|  accuracy  |   0.4615233750031459  |   0.4615233750031459  |
+|   recall   |  0.46048499631845197  |  0.46048499631845197  |
+| precision  |   0.4687349466389491  |   0.4687349466389491  |
++------------+-----------------------+-----------------------+
+</code></pre><p><img src="https://i.imgur.com/8pYO9DE.png" alt="" loading="lazy"></p><h2 id="Artificial-Neural-Networks-w-holdout-validation" data-id="Artificial-Neural-Networks-w-holdout-validation"><a class="anchor hidden-xs" href="#Artificial-Neural-Networks-w-holdout-validation" title="Artificial-Neural-Networks-w-holdout-validation"><span class="octicon octicon-link"></span></a><span>Artificial Neural Networks w/ holdout validation</span></h2><h3 id="Building-Models1" data-id="Building-Models"><a class="anchor hidden-xs" href="#Building-Models1" title="Building-Models1"><span class="octicon octicon-link"></span></a><span>Building Models</span></h3><pre><code># Add Input layer hidden layers
+model.add(Dense(units=128, activation='sigmoid')) 
+model.add(Dense(64, activation='sigmoid'))
+model.add(Dense(32, activation='sigmoid'))
+
+# Add output layer
+model.add(Dense(units=5, activation='softmax'))
+
+# compile and choose the loss, optimizer, and validation method
+model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])  
+
+...
+
+# train
+model.fit(X_train, y_train, epochs=40)#, callbacks=[tensorboard])
+</code></pre><h3 id="Results1" data-id="Results"><a class="anchor hidden-xs" href="#Results1" title="Results1"><span class="octicon octicon-link"></span></a><span>Results</span></h3><p><span>從下圖的結果來看，ANN model經過較先前三項model有了更好的準確率，三項皆高於50%</span><br>
+<span>而從confusion matrix來看，判斷正確的數值高出許多，除了&lt;11k(true value = 0)外皆有很好的正確率。</span></p><pre><code>+------------+----------+-------------+
+|   accuracy |   recall |   precision |
++============+==========+=============+
+|    0.51932 | 0.518451 |    0.542945 |
++------------+----------+-------------+
+</code></pre><p><img src="https://i.imgur.com/9wzSv6Y.png" alt="" loading="lazy"></p><h2 id="Using-regression-model" data-id="Using-regression-model"><a class="anchor hidden-xs" href="#Using-regression-model" title="Using-regression-model"><span class="octicon octicon-link"></span></a><span>Using regression model</span></h2><ul>
+<li><span>Linear regression</span></li>
+</ul><h3 id="Build-model" data-id="Build-model"><a class="anchor hidden-xs" href="#Build-model" title="Build-model"><span class="octicon octicon-link"></span></a><span>Build model</span></h3><pre><code>regr = linear_model.LinearRegression()
+</code></pre><h3 id="Results2" data-id="Results"><a class="anchor hidden-xs" href="#Results2" title="Results2"><span class="octicon octicon-link"></span></a><span>Results</span></h3><p><span>從下述的結果來看，R2 score為接近50%，與上面各個不同的model相似。</span><br>
+<span>而model的mean absolute error為200k，相當於橫跨上面提到所有的Bin，推測是有幾項label非常大的data(noise)導致</span></p><pre><code>r2 score: 0.49391735839214657
+mean_absolute_error: 234138.71007704406
+</code></pre><h2 id="Conclusion-amp-Application" data-id="Conclusion-amp-Application"><a class="anchor hidden-xs" href="#Conclusion-amp-Application" title="Conclusion-amp-Application"><span class="octicon octicon-link"></span></a><span>Conclusion &amp; Application</span></h2><p><span>從上述的結果來看，這幾項model的表現都不是非常好，推測原因除了data本身target相當imbalance之外，亦有可能是大多feature與target沒有關聯，導致model很難從中找出target和feature的關係，進而無法產生好的預測。</span></p><p><span>題目希望透過各項feature預測該遊戲的擁有人數（銷量），可以用於遊戲發售前的各項事前預測，若遊戲項目為多人制線上遊戲，可依此預測發售後伺服器所需乘載的人數，也可依此調整販售價格達到最大利潤，亦可增加媒體和玩家的事前評測，提高媒體評分分數及玩家推薦數後推測能增加多少玩家購買意願。</span></p><p><span>亦可判斷一項投資是否能獲得預期收穫，如下列code例子：讓遊戲支援linux平台後能增加《刺客教條：兄弟會》這款遊戲約165k的玩家，若收支平衡後能獲得更多利潤，則可說這項投資是成功的。</span></p><pre><code>test = (games[games['Name'] == 'Assassins Creed(r) Brotherhood'])
+modified_test = test.drop(['Name', 'five_level', 'SteamSpyOwners'], axis = 1)
+modified_test['PlatformLinux'] = True
+a = regr.predict(modified_test)
+print(a - test['SteamSpyOwners'].values[0])
+
+out:
+[165824.31517708]
+</code></pre><p><span>此外，在經過decision tree的impurity計算後，我們可以得出影響銷量的前10大feature：</span></p><ul>
+<li><span>RecommendationCount</span></li>
+<li><span>ReleaseYear</span></li>
+<li><span>PriceFinal</span></li>
+<li><span>Metacritic</span></li>
+<li><span>SupportedLanguagesCount</span></li>
+<li><span>IsFree</span></li>
+<li><span>GenreIsEarlyAccess</span></li>
+<li><span>GenreIsRPG</span></li>
+<li><span>PlatformMac</span></li>
+<li><span>CategoryMultiplayer</span></li>
+</ul><p><span>除了幾項與銷量有明顯相關的feature(ReleaseYear --&gt; 累積時間越長勢必會有越多銷量、IsFree --&gt; 免費的遊戲)</span></p><p><span>我們可以看見價格、媒體評測分數、支援的語言數量是影響銷量很大的原因，而玩家也偏好有early access（推測可由公開測試提高遊戲熱度，並透過讓玩家只體驗一部份遊戲提升對遊戲後續的好奇心，進而提升銷量）、RPG、多人類型的遊戲</span></p><p><span>而遊戲有沒有支援MAC也是影響遊戲銷量的一大因素</span></p><pre><code>ind = np.argsort(-DecisionTreeNPCA_model.feature_importances_)[:10]
+print(DecisionTreeNPCA_model.feature_names_in_[ind])
+
+out:
+['RecommendationCount' 'ReleaseYear' 'PriceFinal' 'Metacritic' 'SupportedLanguagesCount' 'IsFree' 'GenreIsEarlyAccess' 'CategoryMultiplayer' 'GenreIsRPG' 'PlatformMac']
+</code></pre></div>
+    <div class="ui-toc dropup unselectable hidden-print" style="display:none;">
+        <div class="pull-right dropdown">
+            <a id="tocLabel" class="ui-toc-label btn btn-default" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" title="Table of content">
+                <i class="fa fa-bars"></i>
+            </a>
+            <ul id="ui-toc" class="ui-toc-dropdown dropdown-menu" aria-labelledby="tocLabel">
+                <div class="toc"><ul class="nav">
+<li class=""><a href="#Introduction" title="Introduction">Introduction</a><ul class="nav">
+<li class=""><a href="#題目：Steam-Games-Total-Sales-Analysis" title="題目：Steam Games Total Sales Analysis">題目：Steam Games Total Sales Analysis</a></li>
+</ul>
+</li>
+<li class=""><a href="#Data-Collection" title="Data Collection">Data Collection</a></li>
+<li class=""><a href="#Preprocessing" title="Preprocessing">Preprocessing</a><ul class="nav">
+<li class=""><a href="#Data-Clean-up" title="Data Clean-up">Data Clean-up</a></li>
+<li class=""><a href="#Data-Transformation" title="Data Transformation">Data Transformation</a><ul class="nav">
+<li class=""><a href="#原始資料讀入後概況：" title="原始資料讀入後概況：">原始資料讀入後概況：</a></li>
+<li class=""><a href="#進行轉換" title="進行轉換">進行轉換</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#Data-Visualization" title="Data Visualization">Data Visualization</a><ul class="nav">
+<li><a href="#各feature分布" title="各feature分布">各feature分布</a><ul class="nav">
+<li><a href="#銷量分布" title="銷量分布">銷量分布</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#Using-classification-models-amp-k-fold-validation" title="Using classification models &amp; k-fold validation">Using classification models &amp; k-fold validation</a><ul class="nav">
+<li><a href="#Data-binning" title="Data binning">Data binning</a><ul class="nav">
+<li><a href="#切分後的bin範圍及相對的數量" title="切分後的bin範圍及相對的數量">切分後的bin範圍及相對的數量</a></li>
+</ul>
+</li>
+<li><a href="#Building-Models" title="Building Models">Building Models</a></li>
+<li><a href="#Results" title="Results">Results</a></li>
+</ul>
+</li>
+<li><a href="#Artificial-Neural-Networks-w-holdout-validation" title="Artificial Neural Networks w/ holdout validation">Artificial Neural Networks w/ holdout validation</a><ul class="nav">
+<li><a href="#Building-Models1" title="Building Models">Building Models</a></li>
+<li><a href="#Results1" title="Results">Results</a></li>
+</ul>
+</li>
+<li><a href="#Using-regression-model" title="Using regression model">Using regression model</a><ul class="nav">
+<li><a href="#Build-model" title="Build model">Build model</a></li>
+<li><a href="#Results2" title="Results">Results</a></li>
+</ul>
+</li>
+<li class=""><a href="#Conclusion-amp-Application" title="Conclusion &amp; Application">Conclusion &amp; Application</a></li>
+</ul>
+</div><div class="toc-menu"><a class="expand-toggle" href="#">全部展開</a><a class="back-to-top" href="#">回到頂部</a><a class="go-to-bottom" href="#">移至底部</a></div>
+            </ul>
+        </div>
+    </div>
+    <div id="ui-toc-affix" class="ui-affix-toc ui-toc-dropdown unselectable hidden-print" data-spy="affix" style="top:17px;display:none;" null null>
+        <div class="toc"><ul class="nav">
+<li class=""><a href="#Introduction" title="Introduction">Introduction</a><ul class="nav">
+<li class=""><a href="#題目：Steam-Games-Total-Sales-Analysis" title="題目：Steam Games Total Sales Analysis">題目：Steam Games Total Sales Analysis</a></li>
+</ul>
+</li>
+<li class=""><a href="#Data-Collection" title="Data Collection">Data Collection</a></li>
+<li class=""><a href="#Preprocessing" title="Preprocessing">Preprocessing</a><ul class="nav">
+<li class=""><a href="#Data-Clean-up" title="Data Clean-up">Data Clean-up</a></li>
+<li class=""><a href="#Data-Transformation" title="Data Transformation">Data Transformation</a><ul class="nav">
+<li class=""><a href="#原始資料讀入後概況：" title="原始資料讀入後概況：">原始資料讀入後概況：</a></li>
+<li class=""><a href="#進行轉換" title="進行轉換">進行轉換</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#Data-Visualization" title="Data Visualization">Data Visualization</a><ul class="nav">
+<li><a href="#各feature分布" title="各feature分布">各feature分布</a><ul class="nav">
+<li><a href="#銷量分布" title="銷量分布">銷量分布</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#Using-classification-models-amp-k-fold-validation" title="Using classification models &amp; k-fold validation">Using classification models &amp; k-fold validation</a><ul class="nav">
+<li><a href="#Data-binning" title="Data binning">Data binning</a><ul class="nav">
+<li><a href="#切分後的bin範圍及相對的數量" title="切分後的bin範圍及相對的數量">切分後的bin範圍及相對的數量</a></li>
+</ul>
+</li>
+<li><a href="#Building-Models" title="Building Models">Building Models</a></li>
+<li><a href="#Results" title="Results">Results</a></li>
+</ul>
+</li>
+<li><a href="#Artificial-Neural-Networks-w-holdout-validation" title="Artificial Neural Networks w/ holdout validation">Artificial Neural Networks w/ holdout validation</a><ul class="nav">
+<li><a href="#Building-Models1" title="Building Models">Building Models</a></li>
+<li><a href="#Results1" title="Results">Results</a></li>
+</ul>
+</li>
+<li><a href="#Using-regression-model" title="Using regression model">Using regression model</a><ul class="nav">
+<li><a href="#Build-model" title="Build model">Build model</a></li>
+<li><a href="#Results2" title="Results">Results</a></li>
+</ul>
+</li>
+<li class=""><a href="#Conclusion-amp-Application" title="Conclusion &amp; Application">Conclusion &amp; Application</a></li>
+</ul>
+</div><div class="toc-menu"><a class="expand-toggle" href="#">全部展開</a><a class="back-to-top" href="#">回到頂部</a><a class="go-to-bottom" href="#">移至底部</a></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gist-embed/2.6.0/gist-embed.min.js" integrity="sha256-KyF2D6xPIJUW5sUDSs93vWyZm+1RzIpKCexxElmxl8g=" crossorigin="anonymous" defer></script>
+    <script>
+        var markdown = $(".markdown-body");
+        //smooth all hash trigger scrolling
+        function smoothHashScroll() {
+            var hashElements = $("a[href^='#']").toArray();
+            for (var i = 0; i < hashElements.length; i++) {
+                var element = hashElements[i];
+                var $element = $(element);
+                var hash = element.hash;
+                if (hash) {
+                    $element.on('click', function (e) {
+                        // store hash
+                        var hash = this.hash;
+                        if ($(hash).length <= 0) return;
+                        // prevent default anchor click behavior
+                        e.preventDefault();
+                        // animate
+                        $('body, html').stop(true, true).animate({
+                            scrollTop: $(hash).offset().top
+                        }, 100, "linear", function () {
+                            // when done, add hash to url
+                            // (default click behaviour)
+                            window.location.hash = hash;
+                        });
+                    });
+                }
+            }
+        }
+
+        smoothHashScroll();
+        var toc = $('.ui-toc');
+        var tocAffix = $('.ui-affix-toc');
+        var tocDropdown = $('.ui-toc-dropdown');
+        //toc
+        tocDropdown.click(function (e) {
+            e.stopPropagation();
+        });
+
+        var enoughForAffixToc = true;
+
+        function generateScrollspy() {
+            $(document.body).scrollspy({
+                target: ''
+            });
+            $(document.body).scrollspy('refresh');
+            if (enoughForAffixToc) {
+                toc.hide();
+                tocAffix.show();
+            } else {
+                tocAffix.hide();
+                toc.show();
+            }
+            $(document.body).scroll();
+        }
+
+        function windowResize() {
+            //toc right
+            var paddingRight = parseFloat(markdown.css('padding-right'));
+            var right = ($(window).width() - (markdown.offset().left + markdown.outerWidth() - paddingRight));
+            toc.css('right', right + 'px');
+            //affix toc left
+            var newbool;
+            var rightMargin = (markdown.parent().outerWidth() - markdown.outerWidth()) / 2;
+            //for ipad or wider device
+            if (rightMargin >= 133) {
+                newbool = true;
+                var affixLeftMargin = (tocAffix.outerWidth() - tocAffix.width()) / 2;
+                var left = markdown.offset().left + markdown.outerWidth() - affixLeftMargin;
+                tocAffix.css('left', left + 'px');
+            } else {
+                newbool = false;
+            }
+            if (newbool != enoughForAffixToc) {
+                enoughForAffixToc = newbool;
+                generateScrollspy();
+            }
+        }
+        $(window).resize(function () {
+            windowResize();
+        });
+        $(document).ready(function () {
+            windowResize();
+            generateScrollspy();
+        });
+
+        //remove hash
+        function removeHash() {
+            window.location.hash = '';
+        }
+
+        var backtotop = $('.back-to-top');
+        var gotobottom = $('.go-to-bottom');
+
+        backtotop.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (scrollToTop)
+                scrollToTop();
+            removeHash();
+        });
+        gotobottom.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (scrollToBottom)
+                scrollToBottom();
+            removeHash();
+        });
+
+        var toggle = $('.expand-toggle');
+        var tocExpand = false;
+
+        checkExpandToggle();
+        toggle.click(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            tocExpand = !tocExpand;
+            checkExpandToggle();
+        })
+
+        function checkExpandToggle () {
+            var toc = $('.ui-toc-dropdown .toc');
+            var toggle = $('.expand-toggle');
+            if (!tocExpand) {
+                toc.removeClass('expand');
+                toggle.text('Expand all');
+            } else {
+                toc.addClass('expand');
+                toggle.text('Collapse all');
+            }
+        }
+
+        function scrollToTop() {
+            $('body, html').stop(true, true).animate({
+                scrollTop: 0
+            }, 100, "linear");
+        }
+
+        function scrollToBottom() {
+            $('body, html').stop(true, true).animate({
+                scrollTop: $(document.body)[0].scrollHeight
+            }, 100, "linear");
+        }
+    </script>
+</body>
+
+</html>
